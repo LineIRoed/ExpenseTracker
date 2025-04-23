@@ -6,6 +6,7 @@ const Banner = () => {
   const [expenseName, setExpenseName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
+  const [date, setDate] = useState('');
 
   const formatCurrency = (value) => {
     const amount = parseFloat(value);
@@ -26,6 +27,7 @@ const Banner = () => {
       name: expenseName,
       price: parseFloat(price),
       category,
+      date,
     };
 
     const existingExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
@@ -35,6 +37,7 @@ const Banner = () => {
     setExpenseName('');
     setPrice('');
     setCategory('');
+    setDate('');
   };
 
   const handlePriceChange = (e) => {
@@ -84,6 +87,13 @@ const Banner = () => {
           <option value="entertainment">Entertainment</option>
           <option value="Other">Other</option>
         </select>
+
+        <input
+          type="date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          required
+        />
         
         <Button type="submit">Add Expense</Button>
       </form>
