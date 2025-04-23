@@ -1,0 +1,24 @@
+:root {
+    --color-pink: #8f6d63;
+    --color-blue: #0d3039;
+    --color-blue-hover: #314F57;
+
+    --font-size-small: 1rem;
+    --font-size-medium: 1.125rem;
+    --font-size-large: 1.875rem;
+
+}
+
+button {
+    border-radius: 5px;
+    border: 1px transparent;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--color-blue);
+    color: white;
+}
+button:hover {
+    background-color: var(--color-blue-hover) ;
+}

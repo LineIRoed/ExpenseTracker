@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './navBar.module.css';
+import Button from '../Buttons/Button.jsx'
 
 const Banner = () => {
   const [expenseName, setExpenseName] = useState('');
@@ -51,10 +52,11 @@ const Banner = () => {
   };
 
   return (
-    <nav className="banner">
-      <h1 className='bannerTitle'>Expense Tracker</h1>
-      <form onSubmit={handleSubmit} className="expenseForm">
+    <nav className={styles.banner}>
+      <h1 className={styles.bannerTitle}>Expense Tracker</h1>
+      <form onSubmit={handleSubmit} className={styles.expenseForm}>
         <input
+          className={styles.formInput}
           type="text"
           placeholder="Expense Name"
           value={expenseName}
@@ -63,6 +65,7 @@ const Banner = () => {
         />
       
         <input
+          className={styles.formInput}
           type="text"
           placeholder="$0.00"
           value={price}
@@ -72,7 +75,7 @@ const Banner = () => {
         />
         
         <select required value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option value="">Select Category</option>
+          <option value="" disabled hidden>Select category</option>
           <option value="housing">Housing</option>
           <option value="utilities">Utilities</option>
           <option value="grocery">Grocery</option>
@@ -82,7 +85,7 @@ const Banner = () => {
           <option value="Other">Other</option>
         </select>
         
-        <button type="submit">Add Expense</button>
+        <Button type="submit">Add Expense</Button>
       </form>
     </nav>
   );

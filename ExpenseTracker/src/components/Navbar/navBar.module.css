@@ -1,0 +1,29 @@
+.banner {
+    background-color: var(--color-pink);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bannerTitle {
+    color: white;
+    font-size: var(--font-size-large);
+}
+.expenseForm {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.formInput {
+    background-color: white;
+    border: 1px transparent;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.expenseForm select {
+    background-color: white;
+    border: 1px transparent;
+    border-radius: 5px;
+    padding: 5px;
+}
