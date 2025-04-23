@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
-import styles from "./navbar.module.css";
+import styles from './navBar.module.css';
 
 const Banner = () => {
   const [expenseName, setExpenseName] = useState('');
-  const [amount, setAmount] = useState('');
+  const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
+
+  const formatCurrency = (value) => {
+    const amount = parseFloat(value);
+    if (isNaN(amount)) return '';
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(amount);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!expenseName || !amount || !category) return;
+    if (!expenseName || !price || !category) return;
 
     const newExpense = {
       id: Date.now(),
       name: expenseName,
-      amount: parseFloat(amount),
+      price: parseFloat(price),
       category,
     };
 
@@ -23,8 +32,22 @@ const Banner = () => {
     localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
 
     setExpenseName('');
-    setAmount('');
+    setPrice('');
     setCategory('');
+  };
+
+  const handlePriceChange = (e) => {
+    const raw = e.target.value;
+    if (/^\d*\.?\d{0,2}$/.test(raw)) {
+      setPrice(raw);
+    }
+  };
+
+  const handleBlur = () => {
+    setPrice((prev) => {
+      const formatted = formatCurrency(prev); 
+      return formatted.replace(/[^0-9.]/g, ''); 
+    });
   };
 
   return (
@@ -38,25 +61,27 @@ const Banner = () => {
           onChange={(e) => setExpenseName(e.target.value)}
           required
         />
+      
         <input
-          type="number"
-          placeholder="$ Amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          step="0.01"
-          min="0"
+          type="text"
+          placeholder="$0.00"
+          value={price}
+          onChange={handlePriceChange}
+          onBlur={handleBlur}
           required
         />
+        
         <select required value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option className='selectOption' value="">Select Category</option>
-          <option className='selectOption' value="housing">Housing</option>
-          <option className='selectOption' value="utilities">Utilities</option>
-          <option className='selectOption' value="grocery">Grocery</option>
-          <option className='selectOption' value="transportation">Transportation</option>
-          <option className='selectOption' value="clothing">Clothing</option>
-          <option className='selectOption' value="entertainment">Entertainment</option>
-          <option className='selectOption' value="Other">Other</option>
+          <option value="">Select Category</option>
+          <option value="housing">Housing</option>
+          <option value="utilities">Utilities</option>
+          <option value="grocery">Grocery</option>
+          <option value="transportation">Transportation</option>
+          <option value="clothing">Clothing</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="Other">Other</option>
         </select>
+        
         <button type="submit">Add Expense</button>
       </form>
     </nav>
