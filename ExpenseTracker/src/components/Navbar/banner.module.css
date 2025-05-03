@@ -9,6 +9,7 @@
 .bannerTitle {
     color: white;
     font-size: var(--font-size-large);
+    padding-bottom: var(--padding-small);
 }
 .expenseForm {
     display: flex;

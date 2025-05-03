@@ -1,0 +1,61 @@
+.controls {
+    background-color: var(--color-blue);
+    padding: 1rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.filterLabel {
+    font-size: var(--font-size-medium);
+    color: white;
+}
+.dropdownMenu {
+    background-color: white;
+    border: 1px transparent;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* ------------ */
+
+.categoryGroup {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0px 20px;
+    gap: var(--padding-small);
+}
+.categoryName {
+    font-size: var(--font-size-mediumLarge);
+    text-transform: uppercase;
+    padding-top: var(--padding-small);
+}
+.expenseItem {
+    border: 3px solid var(--color-pink);
+    background-color: var(--color-pink-light);
+    padding: var(--padding-small);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.liItems {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.expenseH4 {
+    font-size: var(--font-size-mediumLarge);
+    text-transform: capitalize;
+    padding-bottom: var(--padding-Xsmall);
+}
+.expenseP {
+    font-size: var(--font-size-small);
+}
+
+.totalAmount {
+    font-size: var(--font-size-mediumLarge);
+    padding: var(--padding-small);
+    text-align: end;
+}

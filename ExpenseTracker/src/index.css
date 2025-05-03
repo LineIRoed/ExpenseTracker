@@ -1,12 +1,22 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
 :root {
     --color-pink: #8f6d63;
+    --color-pink-light: #CDBDB9;
     --color-blue: #0d3039;
     --color-blue-hover: #314F57;
 
     --font-size-small: 1rem;
     --font-size-medium: 1.125rem;
+    --font-size-mediumLarge: 1.563rem; 
     --font-size-large: 1.875rem;
 
+    --padding-Xsmall: 10px;
+    --padding-small: 20px;
 }
 
 button {

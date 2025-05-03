@@ -2,7 +2,6 @@ import React from 'react';
 import ExpenseList from '../components/ExpenseList/ExpenseList';
 
 const GroupedExpenses = ({ expenses }) => {
-  // Group expenses by categorygit
   const groupedByCategory = expenses.reduce((acc, expense) => {
     if (!acc[expense.category]) {
       acc[expense.category] = [];
