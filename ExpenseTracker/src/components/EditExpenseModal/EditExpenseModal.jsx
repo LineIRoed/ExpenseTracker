@@ -50,6 +50,14 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             onChange={handleChange} 
             className={styles.inputContainer}
           />
+          <label>Date</label>
+          <input 
+            type="date"
+            name='date'
+            value={editedExpense.date ? editedExpense.date.split("T")[0] : ""} 
+            onChange={handleChange}
+            className={styles.inputContainer}
+          />
           <div className={styles.actionsBtn}>
             <button onClick={handleSave}>Save</button>
             <button onClick={onClose}>Cancel</button>

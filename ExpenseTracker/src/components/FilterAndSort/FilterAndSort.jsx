@@ -83,7 +83,7 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
                 <ul className={styles.liItems}>
                     <li><h4 className={styles.expenseH4}>{expense.name}</h4></li>
                     <li><p className={styles.expenseP}>Amount: ${Number(expense.price).toFixed(2)}</p></li>
-                    <li><p className={styles.expenseP}>Date: {expense.date}</p></li>
+                    <li><p className={styles.expenseP}>Date: {new Date (expense.date).toISOString().split("T")[0]}</p></li>
                 </ul>
                 
                 <ExpenseActions 

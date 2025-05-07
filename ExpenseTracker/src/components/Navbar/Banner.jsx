@@ -62,7 +62,9 @@ const Banner = ({ onAddExpense }) => {
         <input
           type="date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) =>
+            setDate(e.target.value)
+          }
           required
         />
         <Button type="submit">Add Expense</Button>
