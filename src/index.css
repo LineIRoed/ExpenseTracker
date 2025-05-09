@@ -13,6 +13,8 @@
     --color-pink-light: #CDBDB9;
     --color-blue: #0d3039;
     --color-blue-hover: #314F57;
+    --color-red: #9E2A2B;
+    --color-red-hover: #B65F60;
 
     /* font */
     --font-size-small: 1rem;
@@ -23,18 +25,4 @@
     /* padding */
     --padding-Xsmall: 10px;
     --padding-small: 20px;
-}
-
-button {
-    border-radius: 5px;
-    border: 1px transparent;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 1rem;
-    font-weight: 700;
-    background-color: var(--color-blue);
-    color: white;
-}
-button:hover {
-    background-color: var(--color-blue-hover) ;
 }

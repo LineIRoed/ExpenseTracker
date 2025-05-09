@@ -3,9 +3,10 @@ import styles from "./buttons.module.css";
 
 // Button component that renders a customizable button
 const Button = ({ children, onClick, className,}) => {
+  const buttonClass = `${styles.button} ${className ? className : ""}`;
   return (
     <button
-      className={className}
+      className={buttonClass}
       onClick={onClick}
     >
       {children}

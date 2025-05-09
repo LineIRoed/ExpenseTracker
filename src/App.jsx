@@ -3,7 +3,7 @@ import Banner from './components/Navbar/Banner.jsx';
 import FilterAndSort from './components/FilterAndSort/FilterAndSort.jsx';
 import ConfirmationModal from './components/ConfirmationModal/ConfirmationModal';
 import EditExpenseModal from './components/EditExpenseModal/EditExpenseModal';
-import './app.css'
+import "./app.css"
 
 const App = () => {
   // State variables to manage expenses, modals, and the selected expense to edit/delete

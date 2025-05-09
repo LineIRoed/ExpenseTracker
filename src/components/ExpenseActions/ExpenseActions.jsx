@@ -9,7 +9,7 @@ const ExpenseActions = ({ expense, onEdit, onDelete }) => {
       {/* Edit button triggers the onEdit function passed as a prop with the expense object */}
       <Button onClick={() => onEdit(expense)}>Edit</Button>
       {/* Delete button triggers the onDelete function passed as a prop with the expense id */}
-      <Button onClick={() => onDelete(expense.id)}>Delete</Button>
+      <Button className={styles.deleteBtn} onClick={() => onDelete(expense.id)}>Delete</Button>
     </div>
   );
 };

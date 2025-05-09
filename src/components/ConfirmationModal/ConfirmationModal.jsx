@@ -13,9 +13,9 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm, message }) => {
         <h3 className={styles.modalHeader}>{message}</h3>
         <div className={styles.actionsBtn}>
           {/* Button to confirm the action */}
-          <Button onClick={onConfirm} className={styles.confirmButton}>Yes</Button>
+          <Button className={styles.deleteBtn} onClick={onConfirm}>Yes</Button>
           {/* Button to cancel and close the modal */}
-          <Button onClick={onClose} className={styles.cancelButton}>No</Button>
+          <Button onClick={onClose}>No</Button>
         </div>
       </div>
     </div>
