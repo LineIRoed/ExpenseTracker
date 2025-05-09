@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpenseList from '../components/ExpenseList/ExpenseList';
+import ExpenseList from '../ExpenseList/ExpenseList';
 
 const GroupedExpenses = ({ expenses }) => {
   const groupedByCategory = expenses.reduce((acc, expense) => {
