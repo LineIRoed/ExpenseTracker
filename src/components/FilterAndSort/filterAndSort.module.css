@@ -59,3 +59,14 @@
     padding: var(--padding-small);
     text-align: end;
 }
+
+/* ------ */
+
+.noExpensesAlert {
+    font-size: var(--font-size-large);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-small);
+    font-weight: bold;
+}

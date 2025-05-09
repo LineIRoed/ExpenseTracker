@@ -1,3 +1,9 @@
 .noExpensesAlert {
     font-size: var(--font-size-large);
+    color: aqua;
+    background-color: #1f1f1f;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
 }
+  

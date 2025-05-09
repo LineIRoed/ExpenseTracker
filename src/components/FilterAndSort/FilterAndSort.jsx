@@ -95,7 +95,7 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
 
       {/* Display the expenses, grouped by category */}
       {Object.keys(groupedExpenses).length === 0 ? (
-        <p>No expenses to show.</p>
+        <p className={styles.noExpensesAlert}>No expenses to show.</p>
       ) : (
         // Render grouped expenses by category
         Object.entries(groupedExpenses).map(([category, items]) => (
@@ -123,9 +123,11 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
       )}
 
       {/* Display the total amount of the filtered expenses */}
-      <div className={styles.totalContainer}>
-        <h3 className={styles.totalAmount}>Total Expenses: ${totalAmount.toFixed(2)}</h3>
-      </div>
+      {filteredExpenses.length > 0 && (
+        <div className={styles.totalContainer}>
+          <h3 className={styles.totalAmount}>Total Expenses: ${totalAmount.toFixed(2)}</h3>
+        </div>
+      )};
     </div>
   );
 };
