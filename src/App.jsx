@@ -41,23 +41,23 @@ const App = () => {
   //   setIsDeleteModalOpen(true);
   // };
 
-  // const handleConfirmDelete = () => {
-  //   // Step 1: Retrieve the expenses array from localStorage
-  //   const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  const handleConfirmDelete = () => {
+  // Step 1: Retrieve the expenses array from localStorage
+    const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
   
-  //   // Step 2: Filter out the expense to delete (based on the `id` of the selected expense)
-  //   const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDelete);
+  // Step 2: Filter out the expense to delete (based on the `id` of the selected expense)
+    const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDelete);
   
-  //   // Step 3: Update localStorage with the new expenses array after deleting the expense
-  //   localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+  // Step 3: Update localStorage with the new expenses array after deleting the expense
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
   
-  //   // Step 4: Update the state to reflect the new expenses list
-  //   setExpenses(updatedExpenses);
+  // Step 4: Update the state to reflect the new expenses list
+    setExpenses(updatedExpenses);
   
-  //   // Close the delete modal and reset the `expenseToDelete` state
-  //   setIsDeleteModalOpen(false);
-  //   setExpenseToDelete(null);
-  // };
+  // Close the delete modal and reset the `expenseToDelete` state
+    setIsDeleteModalOpen(false);
+    setExpenseToDelete(null);
+   };
   
   const handleDeleteExpense = () => {
     const expenseToDeleteId = 1746791500666;  // The specific ID to delete
