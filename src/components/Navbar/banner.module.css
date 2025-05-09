@@ -10,10 +10,13 @@
     color: white;
     font-size: var(--font-size-large);
     padding-bottom: var(--padding-small);
+    text-align: center;
 }
 .expenseForm {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
 }
 .expenseForm input {
@@ -21,10 +24,15 @@
     border: 1px transparent;
     border-radius: 5px;
     padding-left: 10px;
+    min-height: 2rem;
+    width: 125px;
 }
 .expenseForm select {
     background-color: white;
     border: 1px transparent;
     border-radius: 5px;
     padding: 5px;
+    min-height: 2rem;
+    width: 125px;
 }
+

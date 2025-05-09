@@ -17,11 +17,32 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    width: 100%;
+    width: 70%;
     text-align: center;
 }
 .modalHeader {
     color: white;
     font-size: var(--font-size-medium);
     padding: var(--padding-small);
+}
+
+.actionsBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* responsive design */
+@media screen and (max-width: 312px) {
+    .modalHeader {
+        font-size: var(--font-size-small);
+    }
+}
+@media screen and (max-width: 241px) {
+    .actionsBtn {
+        padding-top: var(--padding-small);
+    }
 }

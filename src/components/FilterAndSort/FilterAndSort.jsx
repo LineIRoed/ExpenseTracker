@@ -127,7 +127,7 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
         <div className={styles.totalContainer}>
           <h3 className={styles.totalAmount}>Total Expenses: ${totalAmount.toFixed(2)}</h3>
         </div>
-      )};
+      )}
     </div>
   );
 };

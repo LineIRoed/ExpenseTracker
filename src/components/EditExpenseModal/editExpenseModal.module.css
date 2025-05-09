@@ -17,7 +17,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     max-width: 500px;
-    width: 100%;
+    width: 70%;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
 .formContainer {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
     gap: 0.5rem;
     justify-content: center;
     align-items: center;
@@ -42,4 +42,15 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+.actionsBtn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: var(--padding-Xsmall);
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }

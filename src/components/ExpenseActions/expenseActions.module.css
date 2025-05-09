@@ -1,0 +1,15 @@
+.editDeleteBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* responsive design */
+@media screen and (max-width: 384px) {
+    .editDeleteBtn {
+        padding-top: var(--padding-small);
+    }
+}
