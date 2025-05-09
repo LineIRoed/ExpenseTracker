@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './editExpenseModal.module.css';
+import { categories } from '../Categories/Categories';
+
 
 const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
   const [editedExpense, setEditedExpense] = useState({});
@@ -43,13 +45,21 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             className={styles.inputContainer}
           />
           <label>Category</label>
-          <input 
+          <select
             type="text" 
             name="category" 
             value={editedExpense.category || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
-          />
+            required
+          >
+            <option value="" disabled hidden>Select category</option>
+              {categories.map((cat) => (
+              <option key={cat} value={cat}>
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </option>
+            ))}
+          </select>
           <label>Date</label>
           <input 
             type="date"

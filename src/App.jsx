@@ -27,14 +27,13 @@ const App = () => {
     setExpenses(prevExpenses => [...prevExpenses, newExpense]);
   };
 
-  const handleEditExpense = (updatedExpense) => {
+  const handleSaveEditedExpense = (updatedExpense) => {
     setExpenses((prev) =>
-      prev.map((expense) => 
-        expense.id === updatedExpense.id ? updatedExpense : expense
+      prev.map((exp) => 
+        exp.id === updatedExpense.id ? updatedExpense : exp
       )
     );
     setIsEditModalOpen(false);
-    setExpenseToEdit(null);
   };
 
   const handleDeleteExpense = (id) => {
@@ -51,11 +50,6 @@ const App = () => {
   const handleCloseDeleteModal = () => {
     setIsDeleteModalOpen(false);
     setExpenseToDelete(null);
-  };
-
-  const handleCloseEditModal = () => {
-    setIsEditModalOpen(false);
-    setExpenseToEdit(null);
   };
 
   const handleOpenEditModal = (expense) => {
@@ -75,9 +69,9 @@ const App = () => {
       {/* Edit Expense Modal */}
       <EditExpenseModal 
         isOpen={isEditModalOpen} 
-        onClose={handleCloseEditModal} 
+        onClose={() => setIsEditModalOpen(false)}
         expense={expenseToEdit} 
-        onSave={handleEditExpense} 
+        onSave={handleSaveEditedExpense} 
       />
 
       {/* Delete Confirmation Modal */}
