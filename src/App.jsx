@@ -36,17 +36,37 @@ const App = () => {
     setIsEditModalOpen(false);
   };
 
-  const handleDeleteExpense = (id) => {
-    setExpenseToDelete(1746791500666);
-    setIsDeleteModalOpen(true);
-  };
+  // const handleDeleteExpense = (id) => {
+  //   setExpenseToDelete(id);
+  //   setIsDeleteModalOpen(true);
+  // };
 
-  const handleConfirmDelete = () => {
+  // const handleConfirmDelete = () => {
+  //   // Step 1: Retrieve the expenses array from localStorage
+  //   const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+  
+  //   // Step 2: Filter out the expense to delete (based on the `id` of the selected expense)
+  //   const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDelete);
+  
+  //   // Step 3: Update localStorage with the new expenses array after deleting the expense
+  //   localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+  
+  //   // Step 4: Update the state to reflect the new expenses list
+  //   setExpenses(updatedExpenses);
+  
+  //   // Close the delete modal and reset the `expenseToDelete` state
+  //   setIsDeleteModalOpen(false);
+  //   setExpenseToDelete(null);
+  // };
+  
+  const handleDeleteExpense = () => {
+    const expenseToDeleteId = 1746791500666;  // The specific ID to delete
+  
     // Step 1: Retrieve the expenses array from localStorage
     const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
   
-    // Step 2: Filter out the expense to delete (based on the `id` of the selected expense)
-    const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDelete);
+    // Step 2: Filter out the expense to delete based on the specific `id`
+    const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDeleteId);
   
     // Step 3: Update localStorage with the new expenses array after deleting the expense
     localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
@@ -54,9 +74,8 @@ const App = () => {
     // Step 4: Update the state to reflect the new expenses list
     setExpenses(updatedExpenses);
   
-    // Close the delete modal and reset the `expenseToDelete` state
+    // Close the delete modal
     setIsDeleteModalOpen(false);
-    setExpenseToDelete(null);
   };
   
   
@@ -94,6 +113,9 @@ const App = () => {
         onConfirm={handleConfirmDelete} 
         message="Are you sure you want to delete this expense?" 
       />
+
+      <button onClick={handleDeleteExpense}>Delete Specific Expense</button>
+
     </div>
   );
 };
