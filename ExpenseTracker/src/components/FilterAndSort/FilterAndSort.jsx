@@ -27,11 +27,23 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
   };
 
   const getUniqueMonths = (expenses) => {
-    const monthSet = new Set();
+    const monthMap = new Map();
     expenses.forEach(exp => {
-      if (exp.date) monthSet.add(getMonthYear(exp.date));
+      if (!exp.date) return;
+
+      const date = new Date(exp.date);
+      const year = date.getFullYear();
+      const month = date.getMonth();
+      const key = `${year}-${month}`;
+
+      if (!monthMap.has(key)) {
+        const label = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+        monthMap.set(key, {key, label, sortDate: new Date(year, month, 1) });
+      }
     });
-    return Array.from(monthSet).sort((a, b) => new Date(b) - new Date(a)); // newest first
+    return Array.from(monthMap.values())
+        .sort((a, b) => a.sortDate - b.sortDate)
+        .map(item => item.label); 
   };
 
   const filterExpenses = (expenses, selectedMonth) => {
