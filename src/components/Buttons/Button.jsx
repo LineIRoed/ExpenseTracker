@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "./buttons.module.css";
 
-const Button = ({ children, onClick, className, buttonType, label }) => {
+// Button component that renders a customizable button
+const Button = ({ children, onClick, className,}) => {
   return (
     <button
-      className={`${styles.default} ${className}`}
+      className={className}
       onClick={onClick}
-      type={buttonType}
-      aria-label={label}
     >
       {children}
     </button>

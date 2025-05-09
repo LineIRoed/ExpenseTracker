@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import styles from './banner.module.css';
 import Button from '../Buttons/Button.jsx';
 
+// Banner component: Displays the form to add a new expense
 const Banner = ({ onAddExpense }) => {
+  // State variables for the form fields
   const [expenseName, setExpenseName] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [date, setDate] = useState('');
-
+  
+  // Handles form submission  
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Creating a new expense object based on form input values
     const newExpense = {
       id: Date.now(),
       name: expenseName,
@@ -22,6 +26,7 @@ const Banner = ({ onAddExpense }) => {
     console.log("New expense being added:", newExpense);
     onAddExpense(newExpense);
 
+    // Reset the form fields after submission
     setExpenseName('');
     setPrice('');
     setCategory('');
@@ -31,6 +36,7 @@ const Banner = ({ onAddExpense }) => {
   return (
     <nav className={styles.banner}>
       <h1 className={styles.bannerTitle}>Expense Tracker</h1>
+      {/* Form for adding an expense */}
       <form onSubmit={handleSubmit} className={styles.expenseForm}>
         <input
           className={styles.formInput}

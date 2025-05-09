@@ -25,10 +25,3 @@
     font-size: var(--font-size-medium);
     padding: var(--padding-small);
 }
-.actionsBtn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './filterAndSort.module.css';
 import ExpenseActions from '../ExpenseActions/ExpenseActions';
 
+// Predefined category order to be used for grouping expenses
 const CATEGORY_ORDER = [
   'housing',
   'utilities',
@@ -16,16 +17,19 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
   const [availableMonths, setAvailableMonths] = useState([]);
   const [selectedMonth, setSelectedMonth] = useState('');
 
+  // useEffect hook that runs when expenses change, updating the available months
   useEffect(() => {
     const months = getUniqueMonths(expenses);
     setAvailableMonths(months);
   }, [expenses]);
 
+  // Function to extract the month and year from a given date string
   const getMonthYear = (dateString) => {
     const date = new Date(dateString);
     return `${date.toLocaleString('default', { month: 'long' })} ${date.getFullYear()}`;
   };
 
+  // Function to get unique months from expenses and format them for display
   const getUniqueMonths = (expenses) => {
     const monthMap = new Map();
     expenses.forEach(exp => {
@@ -46,12 +50,14 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
         .map(item => item.label); 
   };
 
+  // Function to filter expenses based on the selected month
   const filterExpenses = (expenses, selectedMonth) => {
     return selectedMonth
       ? expenses.filter(exp => getMonthYear(exp.date) === selectedMonth)
       : expenses;
   };
 
+  // Function to group expenses by their categories based on the predefined category order
   const groupByCategory = (expenses) => {
     const grouped = {};
     CATEGORY_ORDER.forEach(category => {
@@ -63,11 +69,12 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
     return grouped;
   };
 
-  // Get total of all expenses
+  // Function to calculate the total amount of all filtered expenses
   const getTotalAmount = (expenses) => {
     return expenses.reduce((total, expense) => total + (Number(expense.price) || 0), 0);
   };
 
+  // Filtering and grouping the expenses
   const filteredExpenses = filterExpenses(expenses, selectedMonth);
   const groupedExpenses = groupByCategory(filteredExpenses);
   const totalAmount = getTotalAmount(filteredExpenses);
@@ -76,20 +83,25 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
     <div className={styles.filterAndSort}>
       <div className={styles.controls}>
         <label className={styles.filterLabel}>Filter by month:</label>
+        {/* Dropdown to select the month for filtering */}
         <select className={styles.dropdownMenu} value={selectedMonth} onChange={(e) => setSelectedMonth(e.target.value)}>
           <option value="">All months</option>
+          {/* Show the available months */}
           {availableMonths.map(month => (
             <option key={month} value={month}>{month}</option>
           ))}
         </select>
       </div>
 
+      {/* Display the expenses, grouped by category */}
       {Object.keys(groupedExpenses).length === 0 ? (
         <p>No expenses to show.</p>
       ) : (
+        // Render grouped expenses by category
         Object.entries(groupedExpenses).map(([category, items]) => (
           <div key={category} className={styles.categoryGroup}>
             <h2 className={styles.categoryName}>{category}</h2>
+            {/* Display each expense item under the corresponding category */}
             {items.map(expense => (
               <div key={expense.id} className={styles.expenseItem}>
                 <ul className={styles.liItems}>
@@ -98,6 +110,7 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
                     <li><p className={styles.expenseP}>Date: {new Date (expense.date).toISOString().split("T")[0]}</p></li>
                 </ul>
                 
+                {/* Render ExpenseActions component for editing and deleting */}
                 <ExpenseActions 
                     expense={expense}
                     onEdit={onEdit}
@@ -109,7 +122,7 @@ const FilterAndSort = ({ expenses, onEdit, onDelete }) => {
         ))
       )}
 
-      {/* Display the total */}
+      {/* Display the total amount of the filtered expenses */}
       <div className={styles.totalContainer}>
         <h3 className={styles.totalAmount}>Total Expenses: ${totalAmount.toFixed(2)}</h3>
       </div>

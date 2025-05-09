@@ -1,4 +1,26 @@
 .default {
     display: flex;
 }
+
+.actionsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: var(--padding-small);
+}
   
+.editDeleteBtn {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    gap: 1rem;
+    
+}
+.actionsBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
