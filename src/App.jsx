@@ -42,11 +42,15 @@ const App = () => {
   };
 
   const handleConfirmDelete = () => {
-    setExpenses((prev) => prev.filter((expense) => expense.id !== expenseToDelete));
+    const storedExpenses = JSON.parse(localStorage.getItem('expenses')) || [];
+    const updatedExpenses = storedExpenses.filter(expense => expense.id !== expenseToDelete);
+    localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+    setExpenses(updatedExpenses);
+
     setIsDeleteModalOpen(false);
     setExpenseToDelete(null);
   };
-
+  
   const handleCloseDeleteModal = () => {
     setIsDeleteModalOpen(false);
     setExpenseToDelete(null);
