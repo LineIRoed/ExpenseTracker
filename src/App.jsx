@@ -37,7 +37,7 @@ const App = () => {
   };
 
   const handleDeleteExpense = (id) => {
-    setExpenseToDelete(id);
+    setExpenseToDelete(1746791500666);
     setIsDeleteModalOpen(true);
   };
 
