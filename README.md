@@ -50,4 +50,5 @@ If you have any questions or suggestions, feel free to reach out to me at [anro0
 
 Link to github repository: https://github.com/LineIRoed/ExpenseTracker.git
 
-link to netlify deployment: 
+link to netlify deployment: https://expense-tracker-onthego.netlify.app/
+
