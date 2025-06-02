@@ -1,12 +1,53 @@
-# React + Vite
+# assignment_3
+An Expense Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
 
-Currently, two official plugins are available:
+# Installation
+To install the project locally, follow these steps:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone the repository:
+git clone https://github.com/LineIRoed/ExpenseTracker.git
+navigate into the project directory:
 
-## Expanding the ESLint configuration
+cd assignment_3
+open the index.html file in your prefered web browser to get started.
+This project uses Node.js and npm.
+To install dependencies run npm install
+To run project run npm start
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Usage
+To use assignment_3:
+Run npm run dev to open project in browser.
+Add expense using form in navbar.
+Edit and delete expense using edit/delete buttons.
+Filter expenses by month using filter option.
+
+# Features
+Add new expenses and filter them based on month.
+
+# Contributing
+Contributions are welcome. If you want to improve or fix the project, feel free to fork the repository!
+Create a new branch for your feature or bug fix.
+Make your changes and test them.
+Submit a pull request describing your changes and why they should be merged.
+
+# License
+This project is licensed under the MIT License - See the LICENSE file for details
+
+<!-- This project is not licensed -->
+
+# Contact
+If you have any questions or suggestions, feel free to reach out to me at [anro046@student.kristiania.no]
+
+
+Link to github repository: https://github.com/LineIRoed/ExpenseTracker.git
+
+link to netlify deployment: 
