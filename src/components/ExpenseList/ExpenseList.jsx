@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './expenseList.module.css';
-import ExpenseItem from "./ExpenseItem"; // Import the new component
+import ExpenseItem from "./ExpenseItem";
 
 const ExpenseList = ({ expenses }) => {
   return (
