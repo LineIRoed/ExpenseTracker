@@ -22,13 +22,6 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
 
   // Handle saving the edited expense
   const handleSave = () => {
-    const { name, price, category, date } = editedExpense;
-  
-    if (!name || !price || !category || !date) {
-      alert("Please fill out all fields before saving.");
-      return;
-    }
-  
     onSave(editedExpense);
   };
 
@@ -48,6 +41,7 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.name || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
+            required
           />
           {/* Price input field */}
           <label>Price</label>
@@ -57,6 +51,8 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.price || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
+            required
+
           />
           {/* Category dropdown selection */}
           <label>Category</label>
@@ -84,6 +80,7 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.date ? editedExpense.date.split("T")[0] : ""} 
             onChange={handleChange}
             className={styles.inputContainer}
+            required
           />
           {/* Actions buttons */}
           <div className={styles.actionsBtn}>
