@@ -6,7 +6,7 @@ import Button from "../Buttons/Button";
 // EditExpenseModal component for editing an existing expense
 const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
   const [editedExpense, setEditedExpense] = useState({});
-  const [errors, setErrors] = useState({}); // ✅ Add validation state
+  const [errors, setErrors] = useState({});
 
   // useEffect hook to update the editedExpense state whenever the passed `expense` prop changes
   useEffect(() => {
@@ -20,7 +20,7 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedExpense((prev) => ({ ...prev, [name]: value }));
-    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // clear error on change
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
   };
 
   // Handle saving the edited expense
