@@ -54,3 +54,11 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+.tooltip {
+    color: #e63946;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+  

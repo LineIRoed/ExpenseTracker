@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from './editExpenseModal.module.css';
 import { categories } from '../Categories/Categories';
-import Button from "../Buttons/Button"
+import Button from "../Buttons/Button";
 
 // EditExpenseModal component for editing an existing expense
 const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
   const [editedExpense, setEditedExpense] = useState({});
+  const [errors, setErrors] = useState({}); // ✅ Add validation state
 
   // useEffect hook to update the editedExpense state whenever the passed `expense` prop changes
   useEffect(() => {
     if (expense) {
       setEditedExpense({ ...expense });
+      setErrors({}); // clear previous errors when new expense is loaded
     }
   }, [expense]);
 
@@ -18,10 +20,23 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedExpense((prev) => ({ ...prev, [name]: value }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" })); // clear error on change
   };
 
   // Handle saving the edited expense
   const handleSave = () => {
+    const newErrors = {};
+    if (!editedExpense.name) newErrors.name = "Name is required";
+    if (!editedExpense.price) newErrors.price = "Price is required";
+    if (!editedExpense.category) newErrors.category = "Category is required";
+    if (!editedExpense.date) newErrors.date = "Date is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     onSave(editedExpense);
   };
 
@@ -41,8 +56,9 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.name || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
-            required
           />
+          {errors.name && <div className={styles.tooltip}>{errors.name}</div>}
+
           {/* Price input field */}
           <label>Price</label>
           <input 
@@ -51,27 +67,26 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.price || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
-            required
-
           />
+          {errors.price && <div className={styles.tooltip}>{errors.price}</div>}
+
           {/* Category dropdown selection */}
           <label>Category</label>
           <select
-            type="text" 
             name="category" 
             value={editedExpense.category || ''} 
             onChange={handleChange} 
             className={styles.inputContainer}
-            required
           >
             <option value="" disabled hidden>Select category</option>
-              {/* Map through categories to display them as options in the dropdown */}
-              {categories.map((cat) => (
+            {categories.map((cat) => (
               <option key={cat} value={cat}>
                 {cat.charAt(0).toUpperCase() + cat.slice(1)}
               </option>
             ))}
           </select>
+          {errors.category && <div className={styles.tooltip}>{errors.category}</div>}
+
           {/* Date input field */}
           <label>Date</label>
           <input 
@@ -80,13 +95,12 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
             value={editedExpense.date ? editedExpense.date.split("T")[0] : ""} 
             onChange={handleChange}
             className={styles.inputContainer}
-            required
           />
+          {errors.date && <div className={styles.tooltip}>{errors.date}</div>}
+
           {/* Actions buttons */}
           <div className={styles.actionsBtn}>
-            {/* Save button triggers the handleSave function */}
             <Button onClick={handleSave}>Save</Button>
-            {/* Cancel button triggers the onClose function to close the modal */}
             <Button onClick={onClose}>Cancel</Button>
           </div>
         </div>
