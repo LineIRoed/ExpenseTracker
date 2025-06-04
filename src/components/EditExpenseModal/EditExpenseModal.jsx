@@ -22,6 +22,13 @@ const EditExpenseModal = ({ isOpen, onClose, expense, onSave }) => {
 
   // Handle saving the edited expense
   const handleSave = () => {
+    const { name, price, category, date } = editedExpense;
+  
+    if (!name || !price || !category || !date) {
+      alert("Please fill out all fields before saving.");
+      return;
+    }
+  
     onSave(editedExpense);
   };
 
